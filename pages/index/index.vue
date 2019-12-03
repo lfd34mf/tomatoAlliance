@@ -7,11 +7,12 @@
 <script>
 	export default {
 		data() {
+			return {}
 		},
 		onLoad() {
-				uni.navigateTo({
-					url: '../home/home'
-				});
+				// uni.navigateTo({
+				// 	url: '../home/home'
+				// });
 		},
 		methods: {
 
