@@ -1,33 +1,61 @@
 <template>
 	<view class="mine">
 		<!-- 用户信息 -->
-		<view class="userInfo"></view>
+		<view class="userInfo">
+			<view class="head">
+				<view class="headImg">
+					<image src="../../static/logo.png" mode="widthFix"></image>
+				</view>
+				<text>立即登录</text>
+			</view>
+			<text>></text>
+		</view>
 		<!-- 相关功能 -->
 		<view class="otherModule">
 			<!-- 我的订单 -->
 			<view class="myOrder moudelItem">
 				<view class="title">
 					<text>我的订单</text>
-					<text class="title_btn">查看全部></text>
+					<text class="title_btn">查看全部</text>
 				</view>
 				<!-- 订单按钮 -->
 				<view class=" moudelItem_list">
 					<view class="moudelItem_Item " v-for="(item,index) in myOrder" :key='index'>
-						<image :src="item.icon" mode="aspectFit"></image>
-						<view>{{ item.text }}</view>
+						<image :src="item.icon" mode="widthFix"></image>
+						<view class="text">{{ item.text }}</view>
 					</view>
 				</view>
 			</view>
 			<!-- 我的节点 -->
-			<view class="myNode">
-				
+			<view class="myNode moudelItem">
+				<view class="title">
+					<text>我的节点</text>
+					<text class="title_btn"></text>
+				</view>
+				<!-- 订单按钮 -->
+				<view class=" moudelItem_list">
+					<view class="moudelItem_Item " v-for="(item,index) in myNode" :key='index'>
+						<image :src="item.icon" mode="widthFix"></image>
+						<view class="text">{{ item.text }}</view>
+					</view>
+				</view>
 			</view>
 			<!-- 广告 -->
-			<view class="ad">
-				
+			<view class="ad moudelItem">
+				<image src="../../static/home/banner2.png" mode="widthFix"></image>
 			</view>
-			<view class="myServer">
-				
+			<view class="myServer moudelItem">
+				<view class="title">
+					<text>我的服务</text>
+					<text class="title_btn"></text>
+				</view>
+				<!-- 订单按钮 -->
+				<view class=" moudelItem_list">
+					<view class="moudelItem_Item " v-for="(item,index) in myServer" :key='index'>
+						<image :src="item.icon" mode="widthFix"></image>
+						<view class="text">{{ item.text }}</view>
+					</view>
+				</view>
 			</view>
 		</view>
 	</view>
@@ -65,18 +93,53 @@
 </script>
 
 <style lang="less">
+	@groveWidth:20upx;
 	.mine{
 		background: #EDEDED;
 		height: 100%;
+		.otherModule{
+			background: #EDEDED;
+			padding: @groveWidth;
+			
+		}
+		.ad{
+			padding: 0!important;
+			font-size: 0;
+			image{
+				width: 100%;
+			}
+		}
 		.userInfo{
+			background: #222126;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			color: #fff;
+			padding: 0 20upx 50upx;
+			.head{
+				display: flex;
+				flex: 1;
+				align-items: center;
+				.headImg{
+					width: 20%;
+					margin-right: 20upx;
+					border-radius: 50%;
+					overflow: hidden;
+					font-size: 0;
+					image{
+						width: 100%;
+					}
+				}
+			}
 		}
 		.moudelItem{
-			border-radius: 5px;
+			border-radius: 5upx;
 			background: #fff;
-			padding: .8rem;
+			padding: 0 .8rem;
+			margin-bottom: @groveWidth;
 			.title{
 				padding: .5rem 0;
-				border-bottom: 1px solid #ddd;
+				border-bottom: 1upx solid #ddd;
 				display: flex;
 				justify-content: space-between;
 				.title_btn{
@@ -88,9 +151,13 @@
 				flex-wrap: wrap;
 				.moudelItem_Item{
 					width: 25%;
+					text-align: center;
+					padding: 20upx 0 ;
+					.text{
+						font-size: 10upx;
+					}
 					image{
-						width: 100%;
-						height: auto;
+						width: 25%;
 					}
 				}
 			}
