@@ -1,0 +1,13 @@
+.mall_nav_container{
+	padding-top: 20upx;
+	background-color: #fff;
+}
+.mall_nav{
+	width: 20%;
+	text-align: center;
+	padding-bottom: 20upx;
+}
+.mall_nav_icon image{
+	width: 100upx;
+	height: 100upx;
+}
