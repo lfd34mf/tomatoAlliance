@@ -1,5 +1,6 @@
 <template>
     <view class="tabs">
+<qs-tabs></qs-tabs>
         <scroll-view id="tab-bar" class="scroll-h flex flex_center uni-center" :scroll-x="true" :show-scrollbar="false" :scroll-into-view="scrollInto">
 			<view v-for="(tab,index) in tabBars" :key="tab.id" class="uni-tab-item " :id="tab.id" :data-current="index" @click="ontabtap">
                 <text class="uni-tab-item-title" :class="tabIndex==index ? 'uni-tab-item-title-active' : ''">{{tab.name}}</text>
@@ -25,8 +26,7 @@
     </view>
 </template>
 <script>
-    import mediaItem from './news-item.nvue';
-
+	import qsTabs from '../../components/QS-tabs/QS-tabs.vue';
     // 缓存每页最多
     const MAX_CACHE_DATA = 100;
     // 缓存页签数量
@@ -88,7 +88,6 @@
 
     export default {
         components: {
-            mediaItem
         },
         data() {
             return {
@@ -106,7 +105,9 @@
                 showTips: false,
                 navigateFlag: false,
                 pulling: false,
-                refreshIcon: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAB5QTFRFcHBw3Nzct7e39vb2ycnJioqK7e3tpqam29vb////D8oK7wAAAAp0Uk5T////////////ALLMLM8AAABxSURBVHja7JVBDoAgDASrjqj//7CJBi90iyYeOHTPMwmFZrHjYyyFYYUy1bwUZqtJIYVxhf1a6u0R7iUvWsCcrEtwJHp8MwMdvh2amHduiZD3rpWId9+BgPd7Cc2LIkPyqvlQvKxKBJ//Qwq/CacAAwDUv0a0YuKhzgAAAABJRU5ErkJggg=="
+                refreshIcon: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAB5QTFRFcHBw3Nzct7e39vb2ycnJioqK7e3tpqam29vb////D8oK7wAAAAp0Uk5T////////////ALLMLM8AAABxSURBVHja7JVBDoAgDASrjqj//7CJBi90iyYeOHTPMwmFZrHjYyyFYYUy1bwUZqtJIYVxhf1a6u0R7iUvWsCcrEtwJHp8MwMdvh2amHduiZD3rpWId9+BgPd7Cc2LIkPyqvlQvKxKBJ//Qwq/CacAAwDUv0a0YuKhzgAAAABJRU5ErkJggg==",
+				tabs: [1, 2, 3, 4],
+				tabsMore: [1, 2, 3, 4, 5, 6, 7, 8]
             }
         },
         onLoad() {
@@ -239,7 +240,34 @@
                     return (65536 * (1 + Math.random()) | 0).toString(16).substring(1);
                 }
                 return (s4() + s4() + "-" + s4() + "-4" + s4().substr(0, 3) + "-" + s4() + "-" + s4() + s4() + s4()).toUpperCase();
-            }
+            },
+			onClickDisabled(event) {
+				wx.showToast({
+					title: `标签 ${event.detail.index + 1} 已被禁用`,
+					icon: 'none'
+				});
+			},
+			
+			onChange(event) {
+				wx.showToast({
+					title: `切换到标签 ${event.detail.index + 1}`,
+					icon: 'none'
+				});
+			},
+			
+			onClickNavRight() {
+				wx.showToast({
+					title: '点击right nav',
+					icon: 'none'
+				});
+			},
+			
+			onClick(event) {
+				wx.showToast({
+					title: `点击标签 ${event.detail.index + 1}`,
+					icon: 'none'
+				});
+			}
         }
     }
 </script>
@@ -273,6 +301,7 @@
     .scroll-h {
         width: 750upx;
         height: 80upx;
+		background-color:#15151A ;
         flex-direction: row;
         /* #ifndef APP-PLUS */
         white-space: nowrap;
@@ -298,10 +327,11 @@
     }
 
     .uni-tab-item-title {
-        color: #555;
+        color: #fff;
         font-size: 30upx;
         height: 80upx;
         line-height: 80upx;
+		padding-bottom: 10upx;
         flex-wrap: nowrap;
         /* #ifndef APP-PLUS */
         white-space: nowrap;
@@ -311,7 +341,7 @@
     .uni-tab-item-title-active {
         color: #F8D590;
 		border-bottom-color: #F8D590;
-		border-bottom-width: 2upx;
+		border-bottom-width: 5upx;
     }
 
     .swiper-box {
@@ -400,4 +430,26 @@
         font-size: 28upx;
         color: #999;
     }
+	.content {
+		padding: 20px;
+		background-color: #fff;
+	}
+	
+	.content-2 {
+		padding: 20px;
+	}
+	
+	.right-nav {
+		padding: 0 10px;
+		line-height: 44px !important;
+	}
+	
+	.tab-class {
+		transition: all 0.25s ease-in-out;
+	}
+	
+	.tab-active-class {
+		font-size: 1.05em !important;
+		color: #1989fa !important;
+	}
 </style>

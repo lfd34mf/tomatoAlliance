@@ -4,16 +4,51 @@
             "path" : "pages/home/home",
             "style" : {}
         },{
+            "path" : "pages/home/index",
+            "style" :  {
+           				"navigationBarTitleText": "搜索优惠券",
+						"navigationBarBackgroundColor":"#081519",
+           				"app-plus": {
+           					"bounce": "vertical",
+           					"titleNView": {
+           						"buttons": [{
+           							"text": "\ue263",
+           							"fontSrc": "/static/uni.ttf",
+           							"fontSize": "22px",
+           							"color": "#FFFFFF"
+           						}]
+           					}
+           				}
+           			}
+        },{
             "path" : "pages/mine/mine",
             "style" : {}
         },{
             "path" : "pages/task/task",
+           	"style": {
+           				"navigationBarTitleText": "任务中心",
+						"navigationBarBackgroundColor":"#081519",
+           				"app-plus": {
+           					"bounce": "vertical",
+           					"titleNView": {
+           						"buttons": [{
+           							"text": "新手指南",
+           							"fontSrc": "/static/uni.ttf",
+           							"fontSize": "14px",
+           							"color": "#FFFFFF"
+           						}]
+           					}
+           				}
+           			}
+        },
+		{
+            "path" : "pages/save_money/index",
             "style" : {}
         },
 		{
-            "path" : "pages/save_money/save_money",
-            "style" : {}
-        }
+		    "path" : "pages/save_money/save_money",
+		    "style" : {}
+		}
     ],
 	"tabBar": {
 			"color": "#7A7E83",
@@ -22,7 +57,7 @@
 			"position":"bottom",
 			"backgroundColor": "#F8F8F8",
 			"list": [{
-					"pagePath": "pages/home/home",
+					"pagePath": "pages/home/index",
 					"iconPath": "static/logo.png",
 					"selectedIconPath": "static/logo.png",
 					"text": "首页"
@@ -32,7 +67,7 @@
 					"selectedIconPath": "static/logo.png",
 					"text": "任务"
 				},{
-					"pagePath": "pages/save_money/save_money",
+					"pagePath": "pages/save_money/index",
 					"iconPath": "static/logo.png",
 					"selectedIconPath": "static/logo.png",
 					"text": "省钱"
