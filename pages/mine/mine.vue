@@ -1,15 +1,7 @@
 <template>
 	<view class="mine">
 		<!-- 用户信息 -->
-		<view class="userInfo">
-			<view class="head">
-				<view class="headImg">
-					<image src="../../static/logo.png" mode="widthFix"></image>
-				</view>
-				<text>立即登录</text>
-			</view>
-			<text>></text>
-		</view>
+		<userStatus></userStatus>
 		<!-- 相关功能 -->
 		<view class="otherModule">
 			<!-- 我的订单 -->
@@ -42,7 +34,7 @@
 			</view>
 			<!-- 广告 -->
 			<view class="ad moudelItem">
-				<image src="../../static/home/banner2.png" mode="widthFix"></image>
+				<image src="../../static/mine/banner2.png" mode="widthFix"></image>
 			</view>
 			<view class="myServer moudelItem">
 				<view class="title">
@@ -62,101 +54,136 @@
 </template>
 
 <script>
+	import userStatus from './userStatus.vue';
 	export default {
 		data() {
 			return {
-					myOrder:[
-						{icon:'../../static/logo.png',text:'全部'},
-						{icon:'../../static/logo.png',text:'已付款'},
-						{icon:'../../static/logo.png',text:'已完成'},
-						{icon:'../../static/logo.png',text:'已失效'}
-					],
-					myNode:[
-						{icon:'../../static/logo.png',text:'我的钱包'},
-						{icon:'../../static/logo.png',text:'我的粉丝'},
-						{icon:'../../static/logo.png',text:'粉丝订单'},
-						{icon:'../../static/logo.png',text:'邀请好友'}
-					],
-					myServer:[
-						{icon:'../../static/logo.png',text:'我的收藏'},
-						{icon:'../../static/logo.png',text:'我的足迹'},
-						{icon:'../../static/logo.png',text:'找回订单'},
-						{icon:'../../static/logo.png',text:'地推物料'},
-						{icon:'../../static/logo.png',text:'常见问题'},
-						{icon:'../../static/logo.png',text:'联系我们'},
-						{icon:'../../static/logo.png',text:'意见反馈'},
-						{icon:'../../static/logo.png',text:'设置'}
-					]
+				myOrder: [{
+						icon: '../../static/logo.png',
+						text: '全部'
+					},
+					{
+						icon: '../../static/logo.png',
+						text: '已付款'
+					},
+					{
+						icon: '../../static/logo.png',
+						text: '已完成'
+					},
+					{
+						icon: '../../static/logo.png',
+						text: '已失效'
+					}
+				],
+				myNode: [{
+						icon: '../../static/logo.png',
+						text: '我的钱包'
+					},
+					{
+						icon: '../../static/logo.png',
+						text: '我的粉丝'
+					},
+					{
+						icon: '../../static/logo.png',
+						text: '粉丝订单'
+					},
+					{
+						icon: '../../static/logo.png',
+						text: '邀请好友'
+					}
+				],
+				myServer: [{
+						icon: '../../static/logo.png',
+						text: '我的收藏'
+					},
+					{
+						icon: '../../static/logo.png',
+						text: '我的足迹'
+					},
+					{
+						icon: '../../static/logo.png',
+						text: '找回订单'
+					},
+					{
+						icon: '../../static/logo.png',
+						text: '地推物料'
+					},
+					{
+						icon: '../../static/logo.png',
+						text: '常见问题'
+					},
+					{
+						icon: '../../static/logo.png',
+						text: '联系我们'
+					},
+					{
+						icon: '../../static/logo.png',
+						text: '意见反馈'
+					},
+					{
+						icon: '../../static/logo.png',
+						text: '设置'
+					}
+				]
 			}
+		},
+		components: {
+			userStatus
 		},
 	}
 </script>
 
 <style lang="less">
-	@groveWidth:20upx;
-	.mine{
+	@groveWidth: 20upx;
+	.mine {
 		background: #EDEDED;
 		height: 100%;
-		.otherModule{
+
+		.otherModule {
 			background: #EDEDED;
 			padding: @groveWidth;
-			
 		}
-		.ad{
-			padding: 0!important;
+
+		.ad {
+			padding: 0 !important;
 			font-size: 0;
-			image{
+
+			image {
 				width: 100%;
 			}
 		}
-		.userInfo{
-			background: #222126;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			color: #fff;
-			padding: 0 20upx 50upx;
-			.head{
-				display: flex;
-				flex: 1;
-				align-items: center;
-				.headImg{
-					width: 20%;
-					margin-right: 20upx;
-					border-radius: 50%;
-					overflow: hidden;
-					font-size: 0;
-					image{
-						width: 100%;
-					}
-				}
-			}
-		}
-		.moudelItem{
+
+		.moudelItem {
 			border-radius: 5upx;
 			background: #fff;
 			padding: 0 .8rem;
 			margin-bottom: @groveWidth;
-			.title{
+
+			.title {
 				padding: .5rem 0;
 				border-bottom: 1upx solid #ddd;
 				display: flex;
 				justify-content: space-between;
-				.title_btn{
+
+				.title_btn {
 					color: #ddd;
 				}
 			}
-			.moudelItem_list{
+
+			.moudelItem_list {
 				display: flex;
 				flex-wrap: wrap;
-				.moudelItem_Item{
+
+				.moudelItem_Item {
 					width: 25%;
 					text-align: center;
-					padding: 20upx 0 ;
-					.text{
+					padding: 20upx 0;
+
+					.text {
 						font-size: 10upx;
 					}
-					image{
+
+					image {
 						width: 25%;
 					}
 				}

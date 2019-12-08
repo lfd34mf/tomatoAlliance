@@ -4,7 +4,6 @@
 	font-style: normal;
 	src: url('./static/uni.ttf') format('truetype');
 }
-
 /*通用 */
 view{
 	font-size:28upx;
@@ -48,7 +47,12 @@ form {
 	margin-right: 0upx;
 	margin-left: 20upx;
 }
-
+.uni-inlin-center{
+	display: flex;
+	flex-direction: row;
+	align-items:center;
+	justify-content: center;
+}
 /* page */
 .uni-page-head{
 	padding:35upx;

@@ -3,7 +3,8 @@
 		{
             "path" : "pages/home/home",
             "style" : {}
-        },{
+        },
+		{
             "path" : "pages/home/index",
             "style" :  {
            				"navigationBarTitleText": "搜索优惠券",
