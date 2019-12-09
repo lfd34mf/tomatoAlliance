@@ -8,7 +8,7 @@
 			<view class="myOrder moudelItem">
 				<view class="title">
 					<text>我的订单</text>
-					<text class="title_btn">查看全部</text>
+					<view class="title_btn" @click="toDo('allOrder')">查看全部<view class="iconfont iconyou"></view></view>
 				</view>
 				<!-- 订单按钮 -->
 				<view class=" moudelItem_list">
@@ -22,7 +22,7 @@
 			<view class="myNode moudelItem">
 				<view class="title">
 					<text>我的节点</text>
-					<text class="title_btn"></text>
+					<view class="title_btn"></view>
 				</view>
 				<!-- 订单按钮 -->
 				<view class=" moudelItem_list">
@@ -39,7 +39,7 @@
 			<view class="myServer moudelItem">
 				<view class="title">
 					<text>我的服务</text>
-					<text class="title_btn"></text>
+					<view class="title_btn"></view>
 				</view>
 				<!-- 订单按钮 -->
 				<view class=" moudelItem_list">
@@ -130,6 +130,18 @@
 		components: {
 			userStatus
 		},
+		methods:{
+			toDo(type,data){
+				switch(type){
+					case 'allOrder':
+					console.log('allOrder')
+					uni.navigateTo({
+					    url: '/pages/mine/order/allOrder?id=1&name=uniapp'
+					});
+					break;
+				}
+			}
+		}
 	}
 </script>
 
@@ -166,7 +178,9 @@
 				justify-content: space-between;
 
 				.title_btn {
-					color: #ddd;
+					color: #a7a7a7;
+					display: flex;
+					align-items: center;
 				}
 			}
 
