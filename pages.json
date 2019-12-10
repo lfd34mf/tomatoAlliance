@@ -25,6 +25,9 @@
             "path" : "pages/mine/mine",
             "style" : {}
         },{
+            "path" : "pages/mine/commission/index",
+            "style" : {}
+        },{
             "path" : "pages/mine/order/allOrder",
             "style" : {}
         },{
