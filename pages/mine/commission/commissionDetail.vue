@@ -1,12 +1,13 @@
 <template>
 	<view class="commissionDetail">
 		<view class="notice">
+			<view class="iconfont iconhorn"></view>
 			每月25日可提现上月【确认收货】的收益
 		</view>
 		<view class="commissionDetail_content">
 			<view class="title">
 				<text>日预估收入</text>
-				<view class="title_btn" @click="toDo('allOrder')">查看全部<view class="iconfont iconyou"></view></view>
+				<view class="title_btn" @click="toDo('allOrder')">说明<view class="iconfont iconyou"></view></view>
 			</view>
 			<view class="commissionBox" v-for="(item,index) of dayMoney" :key='index'> 
 				<view class="commissionBox_List">
@@ -18,7 +19,7 @@
 			</view>
 			<view class="title">
 				<text>月预估收入</text>
-				<view class="title_btn" @click="toDo('allOrder')">查看全部<view class="iconfont iconyou"></view></view>
+				<view class="title_btn" @click="toDo('allOrder')">说明<view class="iconfont iconyou"></view></view>
 			</view>
 			<view class="commissionBox">
 				<view class="commissionBox_List"  v-for="(item,index) of mouthData" :key='index'>
@@ -29,10 +30,11 @@
 				</view>
 			</view>
 			<view class="commissionBox">
-				<view class="title">
-					<text>月预估收入</text>
-					<view class="title_btn" @click="toDo('allOrder')">查看全部<view class="iconfont iconyou"></view></view>
-				</view>
+				
+			</view>
+			<view class="title">
+				<text>月预估收入</text>
+				<view class="title_btn" @click="toDo('allOrder')">规则说明<view class="iconfont iconyou"></view></view>
 			</view>
 		</view>
 	</view>
@@ -105,6 +107,15 @@
 		background: #EDEDED;
 		.commissionDetail_content{
 			margin: @groveWidth;
+		}
+	}
+	.notice{
+		padding: @groveWidth;
+		display: flex;
+		background: #F6F2E7;
+		color: #A35D05;
+		.iconhorn{
+			margin-right: 10upx;
 		}
 	}
 	.title {

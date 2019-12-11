@@ -11,12 +11,12 @@
 			<text>></text>
 		</view>
 		<!-- 已登录 -->
-		<view class="logined" @click="loginOut" v-else-if="loginStatus == '1'">
+		<view class="logined"  v-else-if="loginStatus == '1'">
 			<view class="bg"></view>
 			<!-- 用户信息 -->
 			<view class="userInfo">
 				<view class="userInfo_info">
-					<view class="headImg">
+					<view class="headImg" @click="loginOut">
 						<image src="../../static/logo.png" mode="widthFix"></image>
 					</view>
 					<view class="userInfo_info_box">
@@ -41,7 +41,7 @@
 			<!-- 佣金 -->
 			<view class="commission">
 				<view class="commission_all moneyItem">
-					<view class="uni-inlin-center moneyTitle">
+					<view class="uni-inlin-center moneyTitle" @click="toCommission">
 						<view class="iconfont icontishi"></view>
 						累计预估佣金收益（元）
 						<view class="iconfont iconyou"></view>
@@ -50,12 +50,12 @@
 				</view>
 				<view class="moneyBox">
 					<view class="commission_today">
-						<view class="moneyTitle">今日预估佣金收入（元）</view>
+						<view class="moneyTitle" @click="toCommission">今日预估佣金收入（元）</view>
 						<view class="uni-center">{{ 0 }}</view>
 					</view>
 					<view class="line"></view>
 					<view class="commission_month">
-						<view class="moneyTitle">本月预估佣金收入（元）</view>
+						<view class="moneyTitle" @click="toCommission">本月预估佣金收入（元）</view>
 						<view class="uni-center">{{ 0 }}</view>
 					</view>
 				</view>
@@ -79,6 +79,11 @@
 		methods:{
 			login(){
 				this.setLoginStatus('1')
+			},
+			toCommission(){
+				uni.navigateTo({
+				    url: '/pages/mine/commission/index'
+				});
 			},
 			loginOut(){
 				this.setLoginStatus('0')
