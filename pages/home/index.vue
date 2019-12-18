@@ -22,6 +22,7 @@
 		</view>
 		<swiper 
 		:style="{'height': '1000rpx'}" 
+		:duration="300"
 		:current="swiperCurrent" 
 		@transition="transition"
 		@animationfinish="animationfinish">
@@ -48,12 +49,11 @@
 								<image src="../../static/home/weinituijian.png" mode="widthFix"></image>
 							</view>
 							<view class="crosswise_goods_list_container bgf5">
-								<view class="crosswise_goods_container bgf" v-for="item in 10">
+								<view class="crosswise_goods_container bgf" v-for="item in 2">
 									<view class="crosswise_goods flex">
 										<image class="crosswise_goods_img" src="../../static/home/good.png" mode="widthFix"></image>
 											<view class="crosswise_goods_info flex-1">
 												<view class="crosswise_goods_name">
-													<!-- <image src="../../static/home/home_icon_horn.png" mode="widthFix"></image> -->
 													 毛呢短裤女高腰秋款2019新款外传宽松高腰显瘦百搭冬季打底裤
 												</view>
 												<view class="coupon_container flex flex_start align-center">
@@ -113,7 +113,7 @@
 	const Sys = uni.getSystemInfoSync();
 	const wH = Sys.windowHeight;
 	let n = 1;
-	const tabs = Array(10).fill('').map(()=> 'tab' + Array(n).fill('s').join('') + n++);
+	const tabs = Array(2).fill('').map(()=> 'tab' + Array(n).fill('s').join('') + n++);
 	export default {
 		components: {
 			QSTabs
